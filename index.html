@@ -8,82 +8,88 @@
 <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Andika:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --cA:#d62828; --cB:#1d70b8; --cC:#2a9d4b;
-  --gold:#ffcc00; --ink:#222; --paper:#fbf8ef; --wood:#8a5a2b;
+  --cA:#d9826b; --cB:#6f9fc8; --cC:#7fb08a;
+  --gold:#f3d27a; --ink:#3a3a3a; --paper:#faf7f0; --wood:#b08a62;
 }
 *{box-sizing:border-box}
 html,body{margin:0}
 body{font-family:'Andika','Trebuchet MS',sans-serif;color:var(--ink);background-color:var(--paper);
-  background-image:linear-gradient(#cfe0f3 1px,transparent 1px),linear-gradient(90deg,#cfe0f3 1px,transparent 1px);
+  background-image:linear-gradient(#e3ecf5 1px,transparent 1px),linear-gradient(90deg,#e3ecf5 1px,transparent 1px);
   background-size:26px 26px;min-height:100vh;overflow-x:hidden}
 #stars{display:none}
 h1,h2,h3,.logo,.ptitle,.verdict,.bingo .bh .t{font-family:'Bowlby One','Arial Black',sans-serif;font-weight:400}
-header{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 22px 16px;flex-wrap:wrap;
-  background:var(--cA);color:#fff;border-bottom:4px dashed #fff;box-shadow:0 4px 0 var(--cA);margin-bottom:22px}
-.logo{font-size:32px;line-height:1;letter-spacing:.5px}
-.logo small{display:block;font-family:'Andika',sans-serif;font-size:17px;font-weight:700;letter-spacing:0;margin-top:6px}
-nav{display:flex;gap:8px;flex-wrap:wrap}
-nav button,.btn{font-family:'Andika',sans-serif;font-weight:700;font-size:17px;border:2px solid var(--ink);border-radius:6px;padding:7px 16px;cursor:pointer;color:var(--ink);background:#fff;box-shadow:3px 3px 0 var(--ink);transition:transform .08s}
+header{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:1.5vw;height:8vh;min-height:52px;padding:0 2vw;
+  background:#fff;color:var(--ink);border-bottom:2px solid #e2dccd}
+.logo{font-size:clamp(18px,3.2vh,40px);line-height:1;letter-spacing:.5px;white-space:nowrap}
+.logo small{display:inline;font-family:'Andika',sans-serif;font-size:.55em;font-weight:700;letter-spacing:0;margin-left:.8em;color:#8a8576}
+nav{display:flex;gap:.6vw;flex-wrap:nowrap}
+nav button,.btn{font-family:'Andika',sans-serif;font-weight:700;font-size:clamp(14px,1.9vh,24px);border:2px solid #cfc8b8;border-radius:8px;padding:.6vh 1.1vw;cursor:pointer;color:var(--ink);background:#fff;box-shadow:0 2px 0 #cfc8b8;white-space:nowrap;transition:transform .08s}
 nav button.on{background:var(--gold)}
-nav button:active,.btn:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--ink)}
+nav button:active,.btn:active{transform:translateY(2px);box-shadow:none}
 .btn:disabled{opacity:.55;cursor:default}
 .view{display:none;position:relative;z-index:1}.view.on{display:block}
 
 /* ===== BOMBO ===== */
-#vRuleta .stage{display:grid;grid-template-columns:minmax(320px,1fr) 390px;gap:24px;padding:0 22px 22px;align-items:start}
-@media(max-width:980px){#vRuleta .stage{grid-template-columns:1fr}}
-.wheelBox{position:relative;display:flex;flex-direction:column;align-items:center;background:#2e4a3a;border:14px solid var(--wood);border-radius:8px;padding:14px 14px 18px;
-  box-shadow:inset 0 0 60px #0006,5px 5px 0 #5b3a1a;background-image:radial-gradient(#ffffff08 1px,transparent 1px);background-size:5px 5px}
-.wheelWrap{position:relative;width:min(70vh,88vw,600px);aspect-ratio:1}
+#vRuleta.on{height:92vh;overflow:hidden}
+#vRuleta .stage{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:1.6vw;padding:1.8vh 2vw;height:100%;grid-template-rows:100%}
+.wheelBox{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:space-between;min-height:0;overflow:hidden;background:#4a6656;border:1.2vh solid var(--wood);border-radius:12px;padding:1.2vh 1vw 1.4vh;
+  box-shadow:inset 0 0 50px #0003;background-image:radial-gradient(#ffffff0a 1px,transparent 1px);background-size:5px 5px}
+.wheelWrap{position:relative;height:min(66vh,48vw);aspect-ratio:1;max-width:100%}
 #wheel{width:100%;height:100%;display:block}
-.chalk{color:#f3f3ea;font-size:18px;margin:2px 0 10px;text-align:center}
-.under{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;align-items:center}
-.counter{color:#f3f3ea;border:2px dashed #f3f3ea99;border-radius:6px;padding:5px 14px;font-size:18px;font-weight:700}
+.chalk{color:#f1efe6;font-size:clamp(14px,2vh,26px);margin:0 0 .6vh;text-align:center}
+.under{margin-top:1vh;display:flex;gap:.6vh .6vw;flex-wrap:wrap;justify-content:center;align-items:center;width:100%}
+.under .btn{font-size:clamp(12px,1.6vh,20px);padding:.4vh .8vw}
+.links{margin-top:.6vh;color:#f1efe6aa;font-size:clamp(11px,1.5vh,18px)}
+.links button{background:none;border:0;color:#f1efe6cc;font:inherit;cursor:pointer;text-decoration:underline;padding:0 .3vw}
+.counter{color:#f1efe6;border:2px dashed #f1efe699;border-radius:8px;padding:.5vh 1vw;font-size:clamp(14px,1.9vh,24px);font-weight:700;white-space:nowrap}
+.under #hub{font-family:'Bowlby One',sans-serif;font-weight:400;font-size:clamp(18px,3vh,40px);padding:.6vh 1.6vw;background:var(--gold);border-color:#d9b75a;box-shadow:0 3px 0 #c9a54a}
 
-.side{display:flex;flex-direction:column;gap:16px}
-.panel{background:#fff;border:2px solid var(--ink);border-radius:6px;padding:12px 14px;box-shadow:4px 4px 0 var(--ink)}
-.panel h3{margin:0 0 8px;font-size:19px}
-.board{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.board .col h4{margin:0 0 6px;text-align:center;font-size:14px;border-radius:4px;padding:3px 4px;color:#fff}
-.board .col .balls{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}
-.mini{aspect-ratio:1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:19px;background:#f2f2f2;color:#aaa;border:2px dashed #ccc;cursor:default;position:relative}
-.mini.out{color:var(--ink);border:3px solid var(--ink);animation:popIn .5s cubic-bezier(.3,1.8,.5,1);cursor:pointer}
+.side{display:flex;flex-direction:column;gap:1.4vh;min-height:0;overflow:hidden}
+.panel{background:#fff;border:2px solid #e2dccd;border-radius:12px;padding:1.4vh 1.2vw}
+.panel h3{margin:0 0 1vh;font-size:clamp(15px,2.3vh,30px)}
+.side .panel:first-child{flex:1 1 auto;min-height:0;display:flex;flex-direction:column}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:1vw;flex:1 1 auto;min-height:0}
+.board .col{display:flex;flex-direction:column;min-height:0}
+.board .col h4{margin:0 0 .8vh;text-align:center;font-size:clamp(12px,1.8vh,22px);border-radius:6px;padding:.3vh 4px;color:#fff}
+.board .col .balls{display:grid;grid-template-columns:repeat(2,1fr);grid-auto-rows:1fr;gap:.7vh .5vw;flex:1 1 auto;min-height:0;justify-items:center;align-items:center}
+.mini{height:100%;max-height:6.6vh;aspect-ratio:1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:clamp(13px,2.4vh,30px);background:#f4f2ec;color:#b9b4a6;border:2px dashed #d8d2c3;cursor:default;position:relative}
+.mini.out{color:var(--ink);border:3px solid #6b675c;animation:popIn .5s cubic-bezier(.3,1.8,.5,1);cursor:pointer}
 .mini.out.A{background:radial-gradient(circle,#fff 48%,var(--cA) 50%)}
 .mini.out.B{background:radial-gradient(circle,#fff 48%,var(--cB) 50%)}
 .mini.out.C{background:radial-gradient(circle,#fff 48%,var(--cC) 50%)}
-.mini.last{outline:4px solid var(--gold);outline-offset:2px}
+.mini.last{outline:4px solid #e0b84a;outline-offset:2px}
 @keyframes popIn{0%{transform:scale(0) rotate(-180deg)}100%{transform:scale(1)}}
-.legend{display:flex;flex-direction:column;gap:4px;font-size:15px}
+.legend{display:flex;flex-direction:column;gap:.4vh;font-size:clamp(12px,1.8vh,22px)}
 .legend b{display:inline-block;width:14px;height:14px;border-radius:50%;margin-right:6px;vertical-align:-2px;border:2px solid var(--ink)}
-.hist{font-size:15px;max-height:160px;overflow:auto}
+.hist{font-size:clamp(12px,1.8vh,22px);max-height:9vh;overflow:auto}
 
 /* ===== MODAL BOLITA ===== */
-#modal{position:fixed;inset:0;z-index:20;display:none;align-items:center;justify-content:center;background:#000a;padding:18px}
+#modal{position:fixed;inset:0;z-index:20;display:none;align-items:center;justify-content:center;background:#0008;padding:3vh 3vw}
 #modal.on{display:flex}
-.card{background:var(--paper);color:var(--ink);border:3px solid var(--ink);border-radius:10px;max-width:980px;width:100%;padding:24px 30px 22px;position:relative;box-shadow:8px 8px 0 var(--ink);animation:cardIn .55s cubic-bezier(.3,1.6,.5,1)}
+.card{background:var(--paper);color:var(--ink);border:3px solid #cfc8b8;border-radius:18px;max-width:min(1500px,86vw);width:100%;max-height:94vh;overflow:auto;padding:3vh 3vw;position:relative;animation:cardIn .55s cubic-bezier(.3,1.6,.5,1)}
 @keyframes cardIn{0%{transform:scale(.3) rotate(6deg);opacity:0}100%{transform:none;opacity:1}}
-.card .top{display:flex;align-items:center;gap:22px}
-.bigBall{flex:0 0 auto;width:150px;height:150px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bowlby One',sans-serif;font-size:62px;color:var(--ink);border:4px solid var(--ink);
+.card .top{display:flex;align-items:center;gap:2vw}
+.bigBall{flex:0 0 auto;width:17vh;height:17vh;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bowlby One',sans-serif;font-size:7vh;color:var(--ink);border:4px solid #6b675c;
   animation:ballDrop 1s cubic-bezier(.3,1.5,.5,1)}
 @keyframes ballDrop{0%{transform:translateY(-320px) scale(.4) rotate(-360deg)}70%{transform:translateY(10px) scale(1.05)}100%{transform:none}}
 .bigBall.A{background:radial-gradient(circle,#fff 42%,var(--ink) 43%,var(--ink) 45%,var(--cA) 46%)}
 .bigBall.B{background:radial-gradient(circle,#fff 42%,var(--ink) 43%,var(--ink) 45%,var(--cB) 46%)}
 .bigBall.C{background:radial-gradient(circle,#fff 42%,var(--ink) 43%,var(--ink) 45%,var(--cC) 46%)}
-.tag{display:inline-block;color:#fff;border-radius:4px;padding:2px 12px;font-weight:700;font-size:17px}
+.tag{display:inline-block;color:#fff;border-radius:6px;padding:.2vh 1vw;font-weight:700;font-size:clamp(14px,2.1vh,28px)}
 .tag.A{background:var(--cA)}.tag.B{background:var(--cB)}.tag.C{background:var(--cC)}
-.ptitle{font-size:30px;margin:6px 0 0;line-height:1.1}
-.ptext{font-size:clamp(22px,2.6vw,33px);line-height:1.4;margin:18px 0 6px}
+.ptitle{font-size:clamp(24px,4.4vh,58px);margin:.6vh 0 0;line-height:1.1}
+.ptext{font-size:clamp(22px,4.6vh,60px);line-height:1.35;margin:2.4vh 0 1vh}
 .actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px}
-.btn.big{font-size:21px;padding:9px 22px}
+.btn.big{font-size:clamp(16px,2.6vh,34px);padding:.9vh 1.6vw}
 .btn.gold{background:var(--gold)}
 .btn.purple{background:var(--cB);color:#fff}
 .btn.ghost{background:#eee}
-.timer{margin-left:auto;display:flex;align-items:center;gap:8px;font-weight:700;font-size:26px}
-.timer .ring{width:58px;height:58px}
-.answer{display:none;margin-top:14px;background:#fff;border:3px dashed var(--ink);border-radius:8px;padding:10px 18px;font-size:24px;font-weight:700}
+.timer{margin-left:auto;display:flex;align-items:center;gap:.6vw;font-weight:700;font-size:clamp(20px,4vh,50px)}
+.timer .ring{width:7vh;height:7vh}
+.answer{display:none;margin-top:1.6vh;background:#fff;border:3px dashed #cfc8b8;border-radius:12px;padding:1.2vh 1.6vw;font-size:clamp(18px,3.4vh,44px);font-weight:700}
 .answer.on{display:block;animation:cardIn .5s}
-.answer .val{font-family:'Bowlby One',sans-serif;font-size:42px;color:var(--cA);margin-left:8px}
-.answer .how{font-size:19px;font-weight:400}
+.answer .val{font-family:'Bowlby One',sans-serif;font-size:1.6em;color:#c0634a;margin-left:.4em}
+.answer .how{font-size:.75em;font-weight:400}
 
 /* Fracciones */
 .fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1;margin:0 .08em;font-size:.82em}
@@ -94,8 +100,8 @@ nav button:active,.btn:active{transform:translate(3px,3px);box-shadow:0 0 0 var(
 /* ===== CARTONES ===== */
 .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:0 22px 16px}
 .toolbar p{margin:0;font-size:16px;flex:1 1 300px}
-.sheet{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;padding:0 22px 40px}
-.bingo{background:#fff;color:var(--ink);border-radius:6px;padding:10px 10px 8px;box-shadow:4px 4px 0 var(--ink);break-inside:avoid;page-break-inside:avoid;border:3px solid var(--ink)}
+.sheet{display:none}
+.bingo{background:#fff;color:var(--ink);border-radius:10px;padding:10px 10px 8px;break-inside:avoid;page-break-inside:avoid;border:3px solid var(--ink)}
 .bingo .bh{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
 .bingo .bh .t{font-size:20px;letter-spacing:.5px}
 .bingo .bh .n{font-weight:700;font-size:16px;border:2px solid var(--ink);border-radius:4px;padding:0 8px}
@@ -108,7 +114,7 @@ nav button:active,.btn:active{transform:translate(3px,3px);box-shadow:0 0 0 var(
 .bingo .foot{margin-top:6px;font-size:13px;border-top:2px dotted #999;padding-top:4px}
 
 /* ===== REVISAR / SOLUCIONARIO ===== */
-.wrap{padding:0 22px 40px;max-width:1100px}
+.wrap{padding:2vh 2vw 40px;max-width:1500px}
 .verify{display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start}
 .verify input{font-family:inherit;font-size:24px;width:120px;border-radius:6px;border:2px solid var(--ink);padding:6px 12px;font-weight:700}
 .verdict{font-size:38px;margin:8px 0}
@@ -117,7 +123,7 @@ table.sol th,table.sol td{padding:7px 10px;border-bottom:1px solid #ccc;text-ali
 table.sol th{background:var(--ink);color:#fff}
 table.sol td.num{font-weight:700;font-size:20px;text-align:center}
 table.sol td.ans{font-weight:700;font-size:21px;white-space:nowrap}
-.howto{font-size:18px;line-height:1.55;background:#fff;border:2px solid var(--ink);border-radius:6px;padding:16px 24px;box-shadow:4px 4px 0 var(--ink)}
+.howto{font-size:clamp(16px,2.2vh,28px);line-height:1.55;background:#fff;border:2px solid #e2dccd;border-radius:12px;padding:16px 24px}
 .howto li{margin-bottom:4px}
 
 #confetti{position:fixed;inset:0;pointer-events:none;z-index:30}
@@ -145,10 +151,8 @@ table.sol td.ans{font-weight:700;font-size:21px;white-space:nowrap}
     <small>Matemática · 6° Básico</small></div>
   <nav>
     <button data-v="vRuleta" class="on">Bombo</button>
-    <button data-v="vCartones">Cartones</button>
-    <button data-v="vVerificar">Revisar cartón</button>
-    <button data-v="vSol">Solucionario</button>
-    <button data-v="vComo">Cómo jugar</button>
+        <button data-v="vVerificar">Revisar cartón</button>
+    <button data-v="vSol">Profesor</button>
   </nav>
 </header>
 
@@ -156,24 +160,21 @@ table.sol td.ans{font-weight:700;font-size:21px;white-space:nowrap}
 <section id="vRuleta" class="view on">
   <div class="stage">
     <div class="wheelBox">
-      <div class="chalk">Escuchen bien el problema, resuélvanlo y busquen el resultado en su cartón</div>
+      <div class="chalk">Resuelvan el problema y busquen el resultado en su cartón</div>
       <div class="wheelWrap" id="wheelWrap">
         <canvas id="wheel" width="1000" height="1000"></canvas>
       </div>
-      <button class="btn gold" id="hub" style="font-family:'Bowlby One',sans-serif;font-weight:400;font-size:28px;padding:10px 36px;margin-top:6px">¡SACAR BOLITA! <small style="font-family:Andika,sans-serif;font-size:15px;opacity:.7">(barra espaciadora)</small></button>
       <div class="under">
+        <button class="btn" id="hub">¡SACAR BOLITA!</button>
         <span class="counter" id="counter">Quedan 30 bolitas</span>
-        <button class="btn" id="musicBtn">Música: sí</button>
-        <button class="btn" id="soundBtn">Sonido: sí</button>
-        <button class="btn" id="fsBtn">Pantalla completa</button>
-        <button class="btn ghost" id="resetBtn">Nuevo juego</button>
       </div>
+      <div class="links"><button id="soundBtn">Sonido: sí</button> · <button id="fsBtn">Pantalla completa</button> · <button id="resetBtn">Nuevo juego</button></div>
     </div>
     <div class="side">
       <div class="panel">
         <h3>Bolitas que salieron</h3>
         <div class="board" id="board"></div>
-        <p style="margin:8px 0 0;font-size:14px;opacity:.8">Toca una bolita que ya salió para volver a ver su problema.</p>
+        <p style="margin:.8vh 0 0;font-size:clamp(11px,1.6vh,20px);opacity:.7">Toca una bolita que ya salió para volver a ver su problema.</p>
       </div>
       <div class="panel legend">
         <div><b style="background:var(--cA)"></b><strong>1 – 10:</strong> Decimales: sumar y restar</div>
@@ -188,8 +189,11 @@ table.sol td.ans{font-weight:700;font-size:21px;white-space:nowrap}
 <!-- ============ CARTONES ============ -->
 <section id="vCartones" class="view">
   <div class="toolbar">
-    <p>45 cartones distintos de 3×3. Cada columna es un tipo de ejercicio, cada resultado aparece en 12 a 14 cartones y dos cartones nunca comparten más de 4 números. Se imprimen 6 por hoja carta (8 hojas).</p>
-    <button class="btn gold big" onclick="window.print()">Imprimir cartones</button>
+    <div class="howto" style="max-width:900px">
+      <h2 style="margin:0 0 8px">Cartones para imprimir</h2>
+      <p style="margin:0 0 14px">Archivo Word con los <b>45 cartones</b> (2 por hoja carta, 23 hojas). Cada cartón trae su número, espacio para el nombre y los resultados en grande. Ningún cartón se repite.</p>
+      <a class="btn gold big" href="Cartones_Bingo_6basico.docx" download style="text-decoration:none;display:inline-block">Descargar cartones (Word)</a>
+    </div>
   </div>
   <div class="sheet" id="sheet"></div>
 </section>
@@ -214,27 +218,29 @@ table.sol td.ans{font-weight:700;font-size:21px;white-space:nowrap}
 <!-- ============ SOLUCIONARIO ============ -->
 <section id="vSol" class="view">
   <div class="wrap">
-    <h2 style="margin:0 0 10px">Solucionario para el profesor</h2>
-    <table class="sol" id="solTable"></table>
-  </div>
-</section>
-
-<!-- ============ CÓMO JUGAR ============ -->
-<section id="vComo" class="view">
-  <div class="wrap howto">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px"><div class="howto" style="margin:0">
+      <h2 style="margin:0 0 8px">Cartones para imprimir</h2>
+      <p style="margin:0 0 14px">Archivo Word con los <b>45 cartones</b> (2 por hoja carta, 23 hojas). Cada cartón trae su número, espacio para el nombre y los resultados en grande. Ningún cartón se repite.</p>
+      <a class="btn gold big" href="Cartones_Bingo_6basico.docx" download style="text-decoration:none;display:inline-block">Descargar cartones (Word)</a>
+    </div><div class="howto" style="margin:0">
     <h2 style="margin:0 0 6px">Cómo jugar</h2>
     <ol>
-      <li>Imprime los cartones (pestaña <b>Cartones</b>) y entrega uno a cada estudiante. Hay 45, numerados del 1 al 45.</li>
+      <li>Imprime los cartones (botón de arriba) y entrega uno a cada estudiante. Hay 45, numerados del 1 al 45.</li>
       <li>En el cartón <b>no hay operaciones, hay resultados</b>. Para saber si un resultado está en su cartón, cada niño tiene que resolver el problema.</li>
-      <li>El profesor gira la ruleta. Sale una bolita con un número y un problema (por ejemplo: <i>“Juanito tenía…”</i>). Se lee en voz alta.</li>
+      <li>El profesor pulsa <b>¡Sacar bolita!</b>. Sale una bolita con un número y un problema (por ejemplo: <i>“Juanito tenía…”</i>). Se lee en voz alta.</li>
       <li>Los estudiantes resuelven en su cuaderno mientras corre el reloj. Luego se presiona <b>Ver respuesta</b>, y quien tenga ese resultado lo marca.</li>
       <li>Las fracciones van siempre <b>simplificadas</b>, y si son mayores que 1, como <b>número mixto</b> (por ejemplo, <span class="mx">1 <span class="fr"><span>1</span><span>4</span></span></span> y no <span class="fr"><span>5</span><span>4</span></span>).</li>
       <li><b>Línea:</b> 3 marcados en fila, en columna o en diagonal. <b>¡BINGO!:</b> el cartón completo (9 marcados).</li>
       <li>Si alguien canta, revisa su cartón en <b>Revisar cartón</b> con su número. Así se ve al tiro si marcó bien.</li>
     </ol>
     <p><b>Columnas del cartón:</b> rojo = sumas y restas con decimales · azul = multiplicaciones y divisiones con decimales · verde = fracciones y números mixtos. Cada fila tiene un ejercicio de cada tipo.</p>
+  </div></div>
+    <h2 style="margin:0 0 10px">Solucionario</h2>
+    <table class="sol" id="solTable"></table>
   </div>
 </section>
+
+
 
 <!-- ============ MODAL ============ -->
 <div id="modal">
@@ -396,7 +402,7 @@ function tone(f,d=.06,type='square',v=.12,when=0){ if(!soundOn) return; const a=
 const tick=()=>tone(1200+Math.random()*300,.035,'square',.06);
 function fanfare(){ [523,659,784,1047,784,1047].forEach((f,i)=>tone(f,.22,'triangle',.18,i*.11)); }
 function whoosh(){ if(!soundOn) return; [200,300,420,600].forEach((f,i)=>tone(f,.12,'sawtooth',.04,i*.05)); }
-document.getElementById('soundBtn').onclick=e=>{soundOn=!soundOn;e.target.textContent=soundOn?'Sonido: sí':'Sonido: no'};
+document.getElementById('soundBtn').onclick=e=>{soundOn=!soundOn;musicOn=soundOn;e.target.textContent=soundOn?'Sonido: sí':'Sonido: no';soundOn?startMusic():stopMusic();};
 document.getElementById('fsBtn').onclick=()=>{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()};
 
 /* =========================================================
@@ -420,13 +426,13 @@ function sched(){
 }
 function startMusic(){ if(musicTimer||!musicOn) return; nextT=ac().currentTime+.05; musicTimer=setInterval(sched,60); }
 function stopMusic(){ clearInterval(musicTimer); musicTimer=null; }
-document.getElementById('musicBtn').onclick=e=>{musicOn=!musicOn;e.target.textContent=musicOn?'Música: sí':'Música: no';musicOn?startMusic():stopMusic();};
+
 
 /* =========================================================
    BOMBO DE BINGO (física de bolitas)
    ========================================================= */
 const W=document.getElementById('wheel'), X=W.getContext('2d');
-const COL={A:['#e63946','#9d1c22'],B:['#3a86d4','#13457f'],C:['#3cb85f','#1d6b34']};
+const COL={A:['#e39a84','#b8644d'],B:['#86b2d8','#4f7ea8'],C:['#93c19d','#5a8f66']};
 const G={x:500,y:390,R:300}, BR=31;
 const PATH=[[500,G.y+G.R-BR-4],[500,735],[530,800],[640,858],[790,885],[855,888]];
 let balls=[], ang=0, omega=.012, mode='idle', modeT=0, spinning=false, exitBall=null, trayBall=null, lastClk=0;
@@ -486,9 +492,9 @@ function drawBall(x,y,r,n,c,rot){
 function drawScene(){
   X.clearRect(0,0,1000,1000);
   // soporte
-  X.fillStyle='#ffd23f'; X.strokeStyle='#c98a00'; X.lineWidth=6;
+  X.fillStyle='#e8cf8a'; X.strokeStyle='#bfa25a'; X.lineWidth=6;
   for(const s of [-1,1]){ X.beginPath(); X.moveTo(G.x+s*(G.R+28),G.y); X.lineTo(G.x+s*(G.R-30),930); X.lineTo(G.x+s*(G.R-70),930); X.lineTo(G.x+s*(G.R+4),G.y); X.closePath(); X.fill(); X.stroke(); }
-  const bg='#d62828';
+  const bg='#c98a6f';
   X.fillStyle=bg; X.beginPath(); X.roundRect(90,915,820,75,26); X.fill();
   X.fillStyle='#fff'; X.font='800 46px "Baloo 2",sans-serif'; X.textAlign='center'; X.textBaseline='middle'; X.fillText('B I N G O',380,955);
   // tubo
@@ -496,7 +502,7 @@ function drawScene(){
   X.strokeStyle='rgba(255,255,255,.22)'; X.lineWidth=2*BR+20; X.beginPath(); PATH.forEach((p,i)=>i?X.lineTo(...p):X.moveTo(...p)); X.stroke();
   X.strokeStyle='rgba(255,255,255,.5)'; X.lineWidth=4; X.stroke();
   // bandeja
-  X.fillStyle='#ffd23f'; X.beginPath(); X.ellipse(855,925,70,16,0,0,7); X.fill();
+  X.fillStyle='#e8cf8a'; X.beginPath(); X.ellipse(855,925,70,16,0,0,7); X.fill();
   // vidrio atrás
   const gg=X.createRadialGradient(G.x-90,G.y-110,40,G.x,G.y,G.R);
   gg.addColorStop(0,'rgba(255,255,255,.28)'); gg.addColorStop(.7,'rgba(160,200,255,.12)'); gg.addColorStop(1,'rgba(120,160,255,.30)');
@@ -506,9 +512,9 @@ function drawScene(){
   // jaula que gira (meridianos)
   X.lineWidth=5;
   for(let k=0;k<6;k++){ const a=ang+k*Math.PI/6, rx=Math.abs(Math.cos(a))*G.R, front=Math.sin(a)>0;
-    X.strokeStyle=front?'rgba(255,210,63,.95)':'rgba(255,210,63,.35)'; X.beginPath(); X.ellipse(G.x,G.y,Math.max(rx,1),G.R,0,0,7); X.stroke(); }
-  X.strokeStyle='rgba(255,210,63,.9)'; X.beginPath(); X.ellipse(G.x,G.y,G.R,G.R*.18,0,0,7); X.stroke();
-  X.lineWidth=12; X.strokeStyle='#ffd23f'; X.beginPath(); X.arc(G.x,G.y,G.R,0,7); X.stroke();
+    X.strokeStyle=front?'rgba(232,207,138,.95)':'rgba(232,207,138,.35)'; X.beginPath(); X.ellipse(G.x,G.y,Math.max(rx,1),G.R,0,0,7); X.stroke(); }
+  X.strokeStyle='rgba(232,207,138,.9)'; X.beginPath(); X.ellipse(G.x,G.y,G.R,G.R*.18,0,0,7); X.stroke();
+  X.lineWidth=12; X.strokeStyle='#e8cf8a'; X.beginPath(); X.arc(G.x,G.y,G.R,0,7); X.stroke();
   X.lineWidth=4; X.strokeStyle='#fff'; X.beginPath(); X.arc(G.x,G.y,G.R+7,0,7); X.stroke();
   // brillo del vidrio
   X.strokeStyle='rgba(255,255,255,.55)'; X.lineWidth=14; X.beginPath(); X.arc(G.x,G.y,G.R-26,Math.PI*1.08,Math.PI*1.38); X.stroke();
@@ -516,7 +522,7 @@ function drawScene(){
   X.fillStyle='#fff'; for(const s of [-1,1]){ X.beginPath(); X.arc(G.x+s*(G.R+16),G.y,20,0,7); X.fill(); }
   const hx=G.x+G.R+16, hy=G.y, ca=ang*2.2;
   X.strokeStyle='#fff'; X.lineWidth=12; X.beginPath(); X.moveTo(hx,hy); X.lineTo(hx+Math.cos(ca)*70,hy+Math.sin(ca)*70); X.stroke();
-  X.fillStyle='#d62828'; X.beginPath(); X.arc(hx+Math.cos(ca)*70,hy+Math.sin(ca)*70,18,0,7); X.fill();
+  X.fillStyle='#c98a6f'; X.beginPath(); X.arc(hx+Math.cos(ca)*70,hy+Math.sin(ca)*70,18,0,7); X.fill();
   // bolita saliendo y bolita en bandeja
   if(trayBall) drawBall(855,888,BR+4,trayBall.n,trayBall.c,0);
   if(exitBall) drawBall(exitBall.x,exitBall.y,BR+exitBall.grow,exitBall.n,exitBall.c,exitBall.rot);
@@ -526,7 +532,13 @@ function pathPoint(t){
   const seg=[]; let L=0; for(let i=1;i<PATH.length;i++){const l=Math.hypot(PATH[i][0]-PATH[i-1][0],PATH[i][1]-PATH[i-1][1]);seg.push(l);L+=l;}
   let d=t*L; for(let i=0;i<seg.length;i++){ if(d<=seg[i]||i===seg.length-1){const k=Math.min(1,d/seg[i]);return [PATH[i][0]+(PATH[i+1][0]-PATH[i][0])*k,PATH[i][1]+(PATH[i+1][1]-PATH[i][1])*k];} d-=seg[i]; }
 }
+let lastNow=0;
 function loop(now){
+  const steps=lastNow?Math.max(1,Math.min(4,Math.round((now-lastNow)/16.7))):1; lastNow=now;
+  for(let st=0;st<steps;st++) step();
+  drawScene(); requestAnimationFrame(loop);
+}
+function step(){
   modeT++;
   if(mode==='mix'){ omega+=(.04-omega)*.05; }
   else omega+=(.012-omega)*.03;
@@ -538,7 +550,6 @@ function loop(now){
     else { const k=Math.min(1,(e.t-30)/70), q=k*k*(3-2*k); [e.x,e.y]=pathPoint(q); e.rot+=.25; if(e.t%7===0) knock(.25,900+Math.random()*300);
       if(k>=1){ trayBall={n:e.n,c:e.c}; const n=e.n; exitBall=null; done(n); } }
   }
-  drawScene(); requestAnimationFrame(loop);
 }
 function spin(){
   if(spinning) return;
