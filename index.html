@@ -145,6 +145,117 @@ table.sol td.ans{font-weight:700;font-size:21px;white-space:nowrap}
 .bingo .cell.cA,.bingo .cell.cC{background:#f6f6f6}.bingo .cell.cB{background:#fff}
 .bingo .bh .t{white-space:nowrap}.bingo .bh .t small{font-family:'Andika',sans-serif;font-size:11px;color:#5f5f5f;margin-left:6px}
 .ptext.easy{font-family:'Bowlby One',sans-serif;font-size:clamp(30px,7vh,90px);text-align:center;margin:4vh 0 3vh}
+
+/* ===== TÁCTIL (pantalla táctil, tablet, teléfono) ===== */
+html{-webkit-text-size-adjust:100%}
+body{overscroll-behavior:none}
+button,a.btn,.mini{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+header,#vRuleta,#modal,.pick{-webkit-user-select:none;user-select:none}
+nav button,.btn{min-height:44px}
+.under #hub{min-height:max(56px,7vh);padding:.6vh 2.6vw}
+.links{display:flex;flex-wrap:wrap;justify-content:center;gap:.8vh .8vw;margin-top:1vh}
+.links button{text-decoration:none;border:2px solid #f1efe655;border-radius:999px;min-height:42px;padding:.3vh 1.2vw;white-space:nowrap}
+.links button:active{background:#ffffff22}
+.mini.out{min-width:34px;min-height:34px}
+@media (hover:hover){.btn:hover,nav button:hover{filter:brightness(1.04)}.links button:hover{color:#fff}}
+#vRuleta.on{height:calc(100vh - max(8vh,52px));height:calc(100dvh - max(8vh,52px))}
+
+/* Revisar cartón: teclado de números */
+.vleft{flex:1 1 320px;max-width:640px;min-width:0}
+.vright{flex:1 1 320px;max-width:600px;min-width:0}
+#vCard{width:100%}
+.bingo .bh{gap:8px}.bingo .bh .t{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.pick{display:grid;grid-template-columns:repeat(9,1fr);gap:8px}
+.pick button{font-family:'Bowlby One',sans-serif;font-size:clamp(16px,2.4vh,28px);aspect-ratio:1;min-height:44px;border:2px solid #cfc8b8;border-radius:10px;background:#fff;color:var(--ink);box-shadow:0 2px 0 #cfc8b8;cursor:pointer;padding:0}
+.pick button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pick button:active{transform:translateY(2px);box-shadow:none}
+.solTop{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+.tblWrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+/* Pantallas medianas: logo más corto */
+@media (max-width:1150px){ .logo small{display:none} }
+@media (max-width:900px){ .logo>span{display:none} }
+
+/* Vertical (tablet o teléfono parado) y pantallas angostas: todo en una columna */
+@media (max-aspect-ratio:1/1), (max-width:600px){
+  .logo>span{display:none}
+  header{flex-wrap:wrap;height:auto;padding:1vh 3vw}
+  #vRuleta.on{height:auto;overflow:visible}
+  #vRuleta .stage{grid-template-columns:minmax(0,1fr);grid-template-rows:auto;height:auto;gap:2vh;padding:2vh 3vw}
+  .wheelBox{padding:1.5vh 3vw 2vh;border-width:10px}
+  .wheelWrap{height:auto;width:min(92vw,58vh)}
+  .side{overflow:visible}
+  .board{gap:3vw}
+  .board .col .balls{gap:10px 6px}
+  .mini{height:auto;max-height:none;width:min(100%,72px)}
+  .hist{max-height:none}
+  .chalk{font-size:clamp(15px,2.2vh,24px)}
+  .under #hub{font-size:clamp(20px,3.2vh,36px);padding:.6vh 6vw}
+  .links button{padding:.3vh 3vw}
+  .panel{padding:14px 16px}
+  .card{max-width:96vw;padding:3vh 4vw}
+  .bigBall{width:min(17vh,24vw);height:min(17vh,24vw)}
+  .ptitle{font-size:clamp(22px,4.4vw,46px)}
+  .ptext{font-size:clamp(19px,4.6vw,46px)}
+  .ptext.easy{font-size:clamp(30px,8vw,80px)}
+  .answer{font-size:clamp(17px,3.6vw,36px)}
+  .timer{font-size:clamp(20px,5vw,44px)}
+  .timer .ring{width:clamp(40px,8vw,70px);height:clamp(40px,8vw,70px)}
+  .btn.big{font-size:clamp(16px,3.4vw,30px);padding:10px 4vw}
+  .solTop{grid-template-columns:1fr}
+}
+
+/* Teléfono */
+@media (max-width:600px){
+  header{height:auto;flex-wrap:wrap;padding:8px 10px;gap:8px;justify-content:center}
+  .logo{font-size:22px}
+  .logo>span{display:none}
+  nav{width:100%;gap:6px}
+  nav button{flex:1 1 0;padding:6px 4px;font-size:15px}
+  #vRuleta .stage{padding:10px 8px}
+  .wheelBox{padding:10px 8px 14px;border-width:8px}
+  .card{padding:16px 14px;border-radius:14px}
+  #modal{padding:8px}
+  .card .top{flex-wrap:wrap;gap:12px}
+  .card .top>div:nth-child(2){flex:1 1 150px;min-width:0}
+  .bigBall{width:76px;height:76px;border-width:3px}
+  .timer{margin-left:0}
+  .actions .btn{flex:1 1 100%}
+  #closeBtn{margin-left:0!important}
+  .pick{grid-template-columns:repeat(auto-fill,minmax(46px,1fr));gap:6px}
+  .wrap{padding:14px 10px 40px}
+  .howto{padding:12px 14px}
+  .howto ol{padding-left:20px}
+  table.sol{font-size:14px}
+  table.sol th,table.sol td{padding:6px}
+  table.sol td.ans{font-size:18px}
+  .verdict{font-size:30px}
+  .bingo .bh .t small{display:none}
+  .bingo .cell{font-size:24px}
+}
+
+/* Horizontal pero bajito (teléfono acostado): dos columnas, con scroll */
+@media (orientation:landscape) and (max-height:560px){
+  header{height:52px}
+  #vRuleta.on{height:calc(100vh - 52px);height:calc(100dvh - 52px)}
+  #vRuleta .stage{padding:8px 10px;gap:10px}
+  .wheelBox{padding:6px 8px 8px;border-width:6px}
+  .chalk{display:none}
+  .wheelWrap{height:max(120px,calc(100vh - 240px));height:max(120px,calc(100dvh - 240px))}
+  .under{margin-top:4px}.links{margin-top:4px;gap:4px}
+  .under #hub{min-height:48px;font-size:22px}
+  .links button{min-height:40px;font-size:14px;padding:0 10px}
+  .side{overflow:auto;-webkit-overflow-scrolling:touch}
+  .side .panel:first-child{flex:0 0 auto}
+  .mini{height:auto;max-height:none;width:min(100%,44px)}
+  .hist{max-height:none}
+  .card{max-height:96vh;padding:12px 18px}
+  .bigBall{width:70px;height:70px}
+  .ptitle{font-size:22px}.ptext{font-size:20px;margin:10px 0}.ptext.easy{font-size:36px;margin:12px 0}
+  .timer{font-size:24px}.timer .ring{width:44px;height:44px}
+  .btn.big{font-size:17px;padding:8px 18px}
+  .answer{font-size:18px}
+}
 </style>
 </head>
 <body>
@@ -173,7 +284,7 @@ table.sol td.ans{font-weight:700;font-size:21px;white-space:nowrap}
         <button class="btn" id="hub">¡SACAR BOLITA!</button>
         <span class="counter" id="counter">Quedan 30 bolitas</span>
       </div>
-      <div class="links"><button id="musicBtn">Música: sí</button> · <button id="soundBtn">Sonido: sí</button> · <button id="fsBtn">Pantalla completa</button> · <button id="resetBtn">Nuevo juego</button></div>
+      <div class="links"><button id="musicBtn">Música: sí</button><button id="soundBtn">Sonido: sí</button><button id="fsBtn">Pantalla completa</button><button id="resetBtn">Nuevo juego</button></div>
     </div>
     <div class="side">
       <div class="panel">
@@ -207,15 +318,14 @@ table.sol td.ans{font-weight:700;font-size:21px;white-space:nowrap}
 <section id="vVerificar" class="view">
   <div class="wrap">
     <h2 style="margin:0 0 6px">¿Alguien cantó? Revisa su cartón</h2>
-    <p style="margin:0 0 14px;font-size:18px;opacity:.9">Escribe el número del cartón. Se marcan las respuestas de las bolitas que ya salieron.</p>
+    <p style="margin:0 0 14px;font-size:18px;opacity:.9">Toca el número del cartón. Se marcan las respuestas de las bolitas que ya salieron.</p>
     <div class="verify">
-      <div>
-        <input id="vNum" type="number" min="1" max="45" value="1">
-        <button class="btn gold big" id="vBtn">Revisar</button>
+      <div class="vleft"><div class="pick" id="vPick"></div></div>
+      <div class="vright">
         <div class="verdict" id="verdict"></div>
-        <div id="vDetail" style="font-size:18px;max-width:420px"></div>
+        <div id="vCard"></div>
+        <div id="vDetail" style="font-size:18px;margin-top:10px"></div>
       </div>
-      <div id="vCard" style="width:min(560px,90vw)"></div>
     </div>
   </div>
 </section>
@@ -223,7 +333,7 @@ table.sol td.ans{font-weight:700;font-size:21px;white-space:nowrap}
 <!-- ============ SOLUCIONARIO ============ -->
 <section id="vSol" class="view">
   <div class="wrap">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px"><div class="howto" style="margin:0">
+    <div class="solTop"><div class="howto" style="margin:0">
       <h2 style="margin:0 0 8px">Cartones para imprimir</h2>
       <p style="margin:0 0 14px">PDF con los <b>45 cartones</b>, 8 por hoja carta: son solo <b>6 hojas</b> (con una hoja en blanco entre cada una, 12 páginas). En blanco y negro, se cortan por la línea punteada. Cada cartón trae su número, espacio para el nombre y los resultados en grande. Ningún cartón se repite.</p>
       <a class="btn gold big" href="Cartones_Bingo_6basico.pdf" download style="text-decoration:none;display:inline-block">Descargar cartones (PDF)</a>
@@ -241,7 +351,7 @@ table.sol td.ans{font-weight:700;font-size:21px;white-space:nowrap}
     <p><b>Columnas del cartón:</b> rojo = sumas y restas con decimales · azul = multiplicaciones y divisiones con decimales · verde = fracciones y números mixtos. Cada fila tiene un ejercicio de cada tipo.</p>
   </div></div>
     <h2 style="margin:0 0 10px">Solucionario</h2>
-    <table class="sol" id="solTable"></table>
+    <div class="tblWrap"><table class="sol" id="solTable"></table></div>
   </div>
 </section>
 
@@ -428,7 +538,14 @@ function fanfare(){ [523,659,784,1047,784,1047].forEach((f,i)=>tone(f,.22,'trian
 function whoosh(){ if(!soundOn) return; [200,300,420,600].forEach((f,i)=>tone(f,.12,'sawtooth',.04,i*.05)); }
 document.getElementById('soundBtn').onclick=e=>{soundOn=!soundOn;e.target.textContent=soundOn?'Sonido: sí':'Sonido: no';};
 document.getElementById('musicBtn').onclick=e=>{musicOn=!musicOn;e.target.textContent=musicOn?'Música: sí':'Música: no';musicOn?startMusic():stopMusic();};
-document.getElementById('fsBtn').onclick=()=>{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()};
+(function(){const b=document.getElementById('fsBtn'),de=document.documentElement;
+  const req=de.requestFullscreen||de.webkitRequestFullscreen, ex=document.exitFullscreen||document.webkitExitFullscreen;
+  const isFs=()=>document.fullscreenElement||document.webkitFullscreenElement;
+  if(!req){b.hidden=true;return;}
+  b.onclick=()=>{ try{ isFs()?ex.call(document):req.call(de); }catch(e){} };
+  const upd=()=>b.textContent=isFs()?'Salir de pantalla completa':'Pantalla completa';
+  document.addEventListener('fullscreenchange',upd); document.addEventListener('webkitfullscreenchange',upd);
+})();
 
 /* =========================================================
    MÚSICA (melodía alegre propia, generada con WebAudio)
@@ -662,8 +779,10 @@ function cfLoop(){
 /* =========================================================
    REVISAR CARTÓN
    ========================================================= */
+let vSel=1;
 function verify(){
-  const i=(+document.getElementById('vNum').value)-1;
+  const i=vSel-1;
+  document.querySelectorAll('#vPick button').forEach(b=>b.classList.toggle('on',+b.dataset.n===vSel));
   if(!(i>=0&&i<45)){document.getElementById('verdict').textContent='Cartón 1 a 45';return;}
   const set=new Set(drawn), c=CARDS[i];
   document.getElementById('vCard').innerHTML=cardHTML(i,set);
@@ -676,8 +795,11 @@ function verify(){
   else v.textContent='Todavía no';
   document.getElementById('vDetail').innerHTML=`Tiene <b>${hits} de 9</b> resultados marcados.<br>Faltan: ${grid.filter(n=>!set.has(n)).map(n=>fmt(byN[n].a)).join(' · ')||'—'}`;
 }
-document.getElementById('vBtn').onclick=verify;
-document.getElementById('vNum').addEventListener('keydown',e=>{if(e.key==='Enter')verify();});
+(function(){const pk=document.getElementById('vPick');
+  pk.innerHTML=Array.from({length:45},(_,k)=>`<button data-n="${k+1}">${k+1}</button>`).join('');
+  pk.querySelectorAll('button').forEach(b=>b.onclick=()=>{vSel=+b.dataset.n;verify();
+    if(innerWidth<=600||innerHeight>innerWidth) document.getElementById('verdict').scrollIntoView({behavior:'smooth',block:'start'});});
+})();
 
 /* Navegación */
 document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{
