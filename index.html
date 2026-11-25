@@ -171,7 +171,7 @@ table.sol td.ans{font-weight:700;font-size:21px;white-space:nowrap}
         <button class="btn" id="hub">¡SACAR BOLITA!</button>
         <span class="counter" id="counter">Quedan 30 bolitas</span>
       </div>
-      <div class="links"><button id="soundBtn">Sonido: sí</button> · <button id="fsBtn">Pantalla completa</button> · <button id="resetBtn">Nuevo juego</button></div>
+      <div class="links"><button id="musicBtn">Música: sí</button> · <button id="soundBtn">Sonido: sí</button> · <button id="fsBtn">Pantalla completa</button> · <button id="resetBtn">Nuevo juego</button></div>
     </div>
     <div class="side">
       <div class="panel">
@@ -392,7 +392,7 @@ function renderBoard(){
   b.innerHTML=h;
   b.querySelectorAll('.mini.out').forEach(el=>el.onclick=()=>openModal(+el.dataset.n,false));
   document.getElementById('counter').textContent = remaining().length ? `Quedan ${remaining().length} bolitas` : '¡Salieron todas!';
-  document.getElementById('hist').innerHTML = drawn.length ? drawn.map((n,i)=>`${i+1}. <b>${n}</b> → ${fmt(byN[n].a)}`).join(' &nbsp;·&nbsp; ') : 'Todavía no sale ninguna bolita.';
+  document.getElementById('hist').innerHTML = drawn.length ? drawn.map((n,i)=>`${i+1}. <b>${n}</b>`+(n===pendingN?' → <i>resolviendo…</i>':` → ${fmt(byN[n].a)}`)).join(' &nbsp;·&nbsp; ') : 'Todavía no sale ninguna bolita.';
 }
 
 /* =========================================================
@@ -404,7 +404,8 @@ function tone(f,d=.06,type='square',v=.12,when=0){ if(!soundOn) return; const a=
 const tick=()=>tone(1200+Math.random()*300,.035,'square',.06);
 function fanfare(){ [523,659,784,1047,784,1047].forEach((f,i)=>tone(f,.22,'triangle',.18,i*.11)); }
 function whoosh(){ if(!soundOn) return; [200,300,420,600].forEach((f,i)=>tone(f,.12,'sawtooth',.04,i*.05)); }
-document.getElementById('soundBtn').onclick=e=>{soundOn=!soundOn;musicOn=soundOn;e.target.textContent=soundOn?'Sonido: sí':'Sonido: no';soundOn?startMusic():stopMusic();};
+document.getElementById('soundBtn').onclick=e=>{soundOn=!soundOn;e.target.textContent=soundOn?'Sonido: sí':'Sonido: no';};
+document.getElementById('musicBtn').onclick=e=>{musicOn=!musicOn;e.target.textContent=musicOn?'Música: sí':'Música: no';musicOn?startMusic():stopMusic();};
 document.getElementById('fsBtn').onclick=()=>{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()};
 
 /* =========================================================
@@ -568,7 +569,7 @@ function spin(){
 }
 function done(n){
   drawn.push(n); save(); spinning=false; musicFast=false; document.getElementById('hub').disabled=false;
-  setTimeout(()=>{ fanfare(); burst(); openModal(n,true); renderBoard(); },350);
+  pendingN=n; setTimeout(()=>{ fanfare(); burst(); openModal(n,true); renderBoard(); },350);
 }
 document.getElementById('hub').onclick=spin;
 document.addEventListener('keydown',e=>{
@@ -600,8 +601,9 @@ function runTimer(){
   const upd=()=>{lbl.textContent=tLeft; fg.setAttribute('stroke-dashoffset',106.8*(1-tLeft/tTotal)); fg.setAttribute('stroke',tLeft<=10?'#ff5a5f':'#5b2bb5');};
   upd(); timer=setInterval(()=>{tLeft--; if(tLeft<=5&&tLeft>0) tone(880,.08,'sine',.15); upd(); if(tLeft<=0){clearInterval(timer); tone(440,.5,'triangle',.2); showAns();}},1000);
 }
-function showAns(){ const a=document.getElementById('mAns'); if(!a.classList.contains('on')){a.classList.add('on'); clearInterval(timer); [784,988,1319].forEach((f,i)=>tone(f,.15,'sine',.15,i*.08)); miniBurst();} }
-function closeModal(){ clearInterval(timer); musicQuiet=false; document.getElementById('modal').classList.remove('on'); }
+let pendingN=null;
+function showAns(){ const a=document.getElementById('mAns'); if(!a.classList.contains('on')){a.classList.add('on'); pendingN=null; renderBoard(); clearInterval(timer); [784,988,1319].forEach((f,i)=>tone(f,.15,'sine',.15,i*.08)); miniBurst();} }
+function closeModal(){ clearInterval(timer); if(pendingN!==null){pendingN=null; renderBoard();} musicQuiet=false; document.getElementById('modal').classList.remove('on'); }
 document.getElementById('ansBtn').onclick=showAns;
 document.getElementById('closeBtn').onclick=closeModal;
 
