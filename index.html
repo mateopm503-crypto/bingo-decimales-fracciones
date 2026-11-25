@@ -260,7 +260,6 @@ table.sol td.ans{font-weight:700;font-size:21px;white-space:nowrap}
     <div class="answer" id="mAns"></div>
     <div class="actions">
       <button class="btn purple big" id="ansBtn">Ver respuesta</button>
-      <button class="btn ghost" id="timeBtn">+30 segundos</button>
       <button class="btn gold big" id="closeBtn" style="margin-left:auto">Siguiente bolita →</button>
     </div>
   </div>
@@ -602,7 +601,6 @@ function showAns(){ const a=document.getElementById('mAns'); if(!a.classList.con
 function closeModal(){ clearInterval(timer); musicQuiet=false; document.getElementById('modal').classList.remove('on'); }
 document.getElementById('ansBtn').onclick=showAns;
 document.getElementById('closeBtn').onclick=closeModal;
-document.getElementById('timeBtn').onclick=()=>{ if(document.getElementById('mAns').classList.contains('on')) return; tLeft+=30; tTotal=Math.max(tTotal,tLeft); if(!timer||tLeft===30){} };
 
 /* =========================================================
    CONFETI
