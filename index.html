@@ -142,6 +142,7 @@ table.sol td.ans{font-weight:700;font-size:21px;white-space:nowrap}
 }
 .bingo .cell.cA,.bingo .cell.cC{background:#f6f6f6}.bingo .cell.cB{background:#fff}
 .bingo .bh .t{white-space:nowrap}.bingo .bh .t small{font-family:'Andika',sans-serif;font-size:11px;color:#5f5f5f;margin-left:6px}
+.ptext.easy{font-family:'Bowlby One',sans-serif;font-size:clamp(30px,7vh,90px);text-align:center;margin:4vh 0 3vh}
 </style>
 </head>
 <body>
@@ -277,33 +278,33 @@ table.sol td.ans{font-weight:700;font-size:21px;white-space:nowrap}
 const P = [
  // ---- A: Decimales, sumar y restar ----
  {n:1, c:'A', t:'El agua de Juanito', p:'Juanito tenía 14,5 litros de agua en un bidón y su papá le echó 3,28 litros más. ¿Cuántos litros tiene ahora?', op:'14,5 + 3,28', a:'17,78'},
- {n:2, c:'A', t:'La cinta de Sofía', p:'Sofía tenía una cinta de 9 metros y cortó 3,74 metros para un regalo. ¿Cuántos metros de cinta le quedan?', op:'9 − 3,74', a:'5,26'},
+ {n:2, c:'A', easy:true, t:'Ejercicio rápido', p:'¿Cuánto es 2,5 + 1,5?', op:'2,5 + 1,5', a:'4'},
  {n:3, c:'A', t:'El paseo en bici', p:'Ignacia tiene que recorrer 25,4 km en bicicleta. Ya avanzó 11,15 km. ¿Cuántos kilómetros le faltan?', op:'25,4 − 11,15', a:'14,25'},
  {n:4, c:'A', t:'La cuerda de Juanito', p:'Juanito tenía 4,62 m de cuerda. Compró 15,8 m más y después usó 6,15 m para elevar su volantín. ¿Cuántos metros le quedan?', op:'4,62 + 15,8 − 6,15', a:'14,27'},
  {n:5, c:'A', t:'El rollo de cinta', p:'Un rollo tiene 15 metros de cinta. Se cortan 4 trozos de 2,65 m cada uno. ¿Cuántos metros quedan en el rollo?', op:'15 − 4 × 2,65', a:'4,4'},
- {n:6, c:'A', t:'Las papas del almacén', p:'Don Pedro tenía 7,09 kg de papas en su almacén y le llegaron 12,8 kg más. ¿Cuántos kilos de papas tiene ahora?', op:'7,09 + 12,8', a:'19,89'},
+ {n:6, c:'A', easy:true, t:'Ejercicio rápido', p:'¿Cuánto es 6,8 − 2,3?', op:'6,8 − 2,3', a:'4,5'},
  {n:7, c:'A', t:'La piscina inflable', p:'La piscina inflable de Martina tenía 40 litros de agua. Su perro saltó adentro y se botaron 12,35 litros. ¿Cuántos litros quedaron?', op:'40 − 12,35', a:'27,65'},
- {n:8, c:'A', t:'¡Florencia creció!', p:'En marzo Florencia medía 1,35 m. Hasta diciembre creció 0,08 m. ¿Cuánto mide ahora?', op:'1,35 + 0,08', a:'1,43'},
+ {n:8, c:'A', easy:true, t:'Ejercicio rápido', p:'¿Cuánto es 1,2 + 0,6?', op:'1,2 + 0,6', a:'1,8'},
  {n:9, c:'A', t:'La mochila de Benja', p:'La mochila de Benjamín pesa 2,5 kg. Le agrega un libro de 0,85 kg y un estuche de 0,45 kg. ¿Cuánto pesa ahora la mochila?', op:'2,5 + 0,85 + 0,45', a:'3,8'},
- {n:10,c:'A', t:'La carrera de 100 metros', p:'Pedro corrió los 100 metros en 15,2 segundos y Diego en 13,85 segundos. ¿Cuántos segundos de diferencia hubo entre los dos?', op:'15,2 − 13,85', a:'1,35'},
+ {n:10,c:'A', easy:true, t:'Ejercicio rápido', p:'¿Cuánto es 10 − 2,5?', op:'10 − 2,5', a:'7,5'},
  // ---- B: Decimales, multiplicar y dividir ----
  {n:11,c:'B', t:'Los sacos de arroz', p:'Cada saco de arroz pesa 3,4 kg. La tía Rosa compra 5 sacos para el casino. ¿Cuántos kilos de arroz compró?', op:'3,4 × 5', a:'17'},
- {n:12,c:'B', t:'Botellas de jugo', p:'Juanito tenía 4 botellas de jugo de 0,75 litros cada una. ¿Cuántos litros de jugo tenía en total?', op:'0,75 × 4', a:'3'},
+ {n:12,c:'B', easy:true, t:'Ejercicio rápido', p:'¿Cuánto es 0,5 × 6?', op:'0,5 × 6', a:'3'},
  {n:13,c:'B', t:'El atleta', p:'Un atleta corre 4,35 km cada día, de lunes a sábado. ¿Cuántos kilómetros corre en esos 6 días?', op:'4,35 × 6', a:'26,1'},
- {n:14,c:'B', t:'La pila de hojas', p:'Una hoja de papel tiene 0,08 mm de grosor. Amanda junta 15 hojas en una pila. ¿Qué grosor tiene la pila?', op:'0,08 × 15', a:'1,2'},
+ {n:14,c:'B', easy:true, t:'Ejercicio rápido', p:'¿Cuánto es 2,4 × 2?', op:'2,4 × 2', a:'4,8'},
  {n:15,c:'B', t:'El ciclista', p:'Un ciclista recorre 12,6 km cada día. ¿Cuántos kilómetros recorre en 8 días?', op:'12,6 × 8', a:'100,8'},
- {n:16,c:'B', t:'Las manzanas de Valentina', p:'Valentina tenía 8,4 kg de manzanas y las repartió en 2 bolsas con la misma cantidad. ¿Cuántos kilos tiene cada bolsa?', op:'8,4 : 2', a:'4,2'},
+ {n:16,c:'B', easy:true, t:'Ejercicio rápido', p:'¿Cuánto es 8,4 : 2?', op:'8,4 : 2', a:'4,2'},
  {n:17,c:'B', t:'La lana de la abuela', p:'La abuela tenía 15,6 metros de lana y la cortó en 4 partes iguales. ¿Cuántos metros mide cada parte?', op:'15,6 : 4', a:'3,9'},
  {n:18,c:'B', t:'Los bidones de jugo', p:'Para el aniversario hay 18,75 litros de jugo y se reparten en partes iguales en 5 bidones. ¿Cuántos litros tendrá cada bidón?', op:'18,75 : 5', a:'3,75'},
- {n:19,c:'B', t:'Las galletas', p:'Un paquete de galletas pesa 0,89 kg. ¿Cuánto pesan 100 paquetes iguales?', op:'0,89 × 100', a:'89'},
+ {n:19,c:'B', easy:true, t:'Ejercicio rápido', p:'¿Cuánto es 0,6 × 10?', op:'0,6 × 10', a:'6'},
  {n:20,c:'B', t:'Los dulces de Halloween', p:'Juanito tenía 7,2 kg de dulces y los repartió en partes iguales en 100 bolsitas. ¿Cuántos kilos tiene cada bolsita?', op:'7,2 : 100', a:'0,072'},
  // ---- C: Fracciones y números mixtos ----
- {n:21,c:'C', t:'La pizza de Juanito', p:'Juanito se comió [3/8] de una pizza y su hermana se comió [1/8] de la misma pizza. ¿Qué fracción de la pizza se comieron?', op:'[3/8] + [1/8]', a:'[1/2]', how:'= [4/8], que simplificado es [1/2]'},
- {n:22,c:'C', t:'La leche del desayuno', p:'Camila tomó [1/2] litro de leche en la mañana y [1/4] litro en la tarde. ¿Cuánta leche tomó en total?', op:'[1/2] + [1/4]', a:'[3/4]', how:'[2/4] + [1/4] = [3/4]'},
+ {n:21,c:'C', easy:true, t:'Ejercicio rápido', p:'¿Cuánto es [3/8] + [1/8]?', op:'[3/8] + [1/8]', a:'[1/2]', how:'= [4/8], que simplificado es [1/2]'},
+ {n:22,c:'C', easy:true, t:'Ejercicio rápido', p:'¿Cuánto es [1/5] + [2/5]?', op:'[1/5] + [2/5]', a:'[3/5]'},
  {n:23,c:'C', t:'El chocolate', p:'Tomás tenía [2/3] de un chocolate y su amigo le regaló [1/6] más. ¿Qué fracción de chocolate tiene ahora?', op:'[2/3] + [1/6]', a:'[5/6]', how:'[4/6] + [1/6] = [5/6]'},
- {n:24,c:'C', t:'El jugo de naranja', p:'Lucas tenía [3/4] de litro de jugo y se tomó [1/8] de litro. ¿Cuánto jugo le queda?', op:'[3/4] − [1/8]', a:'[5/8]', how:'[6/8] − [1/8] = [5/8]'},
+ {n:24,c:'C', easy:true, t:'Ejercicio rápido', p:'¿Cuánto es [5/7] − [2/7]?', op:'[5/7] − [2/7]', a:'[3/7]'},
  {n:25,c:'C', t:'Las tortas del cumpleaños', p:'En un cumpleaños se comieron [2/5] de una torta de chocolate y [3/10] de una torta de piña del mismo tamaño. ¿Qué fracción de torta se comieron en total?', op:'[2/5] + [3/10]', a:'[7/10]', how:'[4/10] + [3/10] = [7/10]'},
- {n:26,c:'C', t:'La plasticina', p:'Amanda tenía [5/6] de una barra de plasticina y usó [1/4] de la barra para hacer un dinosaurio. ¿Qué fracción le queda?', op:'[5/6] − [1/4]', a:'[7/12]', how:'[10/12] − [3/12] = [7/12]'},
+ {n:26,c:'C', easy:true, t:'Ejercicio rápido', p:'¿Cuánto es [1/3] + [1/3]?', op:'[1/3] + [1/3]', a:'[2/3]'},
  {n:27,c:'C', t:'El queque', p:'Para un queque se necesitan [3/4] de taza de harina para la masa y [1/2] taza para el molde. ¿Cuánta harina se ocupa en total?', op:'[3/4] + [1/2]', a:'[1 1/4]', how:'[3/4] + [2/4] = [5/4] = [1 1/4]'},
  {n:28,c:'C', t:'Joaquín sale a trotar', p:'Joaquín trotó [2 1/2] km en la mañana y [1 3/4] km en la tarde. ¿Cuántos kilómetros trotó en el día?', op:'[2 1/2] + [1 3/4]', a:'[4 1/4]', how:'[2 2/4] + [1 3/4] = [3 5/4] = [4 1/4]'},
  {n:29,c:'C', t:'El tarro de pintura', p:'Un tarro tenía 3 litros de pintura. Juanito usó [1 3/8] litros para pintar la reja. ¿Cuánta pintura quedó?', op:'3 − [1 3/8]', a:'[1 5/8]', how:'[2 8/8] − [1 3/8] = [1 5/8]'},
@@ -584,9 +585,9 @@ function openModal(n,fresh){
   const p=byN[n];
   const ball=document.getElementById('mBall'); ball.className='bigBall '+p.c; ball.textContent=n;
   ball.style.animation='none'; ball.offsetWidth; ball.style.animation='';
-  const tag=document.getElementById('mTag'); tag.className='tag '+p.c; tag.textContent=CAT[p.c];
+  const tag=document.getElementById('mTag'); tag.className='tag '+p.c; tag.textContent=(p.easy?'Fácil · ':'Problema · ')+CAT[p.c];
   document.getElementById('mTitle').textContent=p.t;
-  document.getElementById('mText').innerHTML=fmt(p.p);
+  const mt=document.getElementById('mText'); mt.innerHTML=fmt(p.p); mt.classList.toggle('easy',!!p.easy);
   const ans=document.getElementById('mAns'); ans.classList.remove('on');
   ans.innerHTML=`Respuesta: <span class="val">${fmt(p.a)}</span><div class="how">${fmt(p.op)} = ${fmt(p.a)}${p.how?' &nbsp;→&nbsp; '+fmt(p.how):''}</div><div class="how">¡Si tienes este resultado en tu cartón, márcalo!</div>`;
   document.getElementById('modal').classList.add('on'); musicQuiet=true;
